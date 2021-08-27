@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+//import { axiosWithAuth } from "./utils/axiosWithAuth";
 import PlantCard from "./PlantCard";
 import { Heading } from "./StyledComponents";
 
@@ -28,9 +28,7 @@ export default function Home() {
   // get plant data from database
   useEffect(() => {
     axios
-      .get(
-//api-url/plants
-      )
+    .get("https://damp-ravine-25485.herokuapp.com/api/plants/:id/plants")
       .then(response => {
         setData(response.data);
       })
