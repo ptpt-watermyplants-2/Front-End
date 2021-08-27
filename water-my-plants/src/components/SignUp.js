@@ -68,12 +68,12 @@ const SignUp = props => {
 export default withFormik({
   mapPropsToValues: values => {
     return {
-      fullname: values.fullname || "",
+      //fullname: values.fullname || "",
       username: values.username || "",
       password: values.password || "",
-      password2: values.password2 || "",
+      //password2: values.password2 || "",
       phonenumber: values.phonenumber || "",
-      termsOfService: values.termsOfService || false
+      //termsOfService: values.termsOfService || false
     };
   },
   validationSchema: yup.object().shape({
@@ -106,10 +106,11 @@ export default withFormik({
   validateOnBlur: false,
   handleSubmit: (values, { props, resetForm }) => {
     let userObj = {
-      fullname: values.fullname,
+      //fullname: values.fullname,
+      user_id: values.user_id,
       username: values.username,
       password: values.password,
-      phonenumber: values.phonenumber
+      phone_number: values.phone_number
     };
     axios
       .post("https://damp-ravine-25485.herokuapp.com/api/register",

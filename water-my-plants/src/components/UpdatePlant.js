@@ -68,8 +68,8 @@ const UpdatePlant = ({ errors, touched, status }) => {
     <Body>
       <PlantForm>
         <h1>Add a Plant</h1>
-        {touched.plant && errors.plant && (
-          <p className="error">{errors.plant}</p>
+        {touched.nickname && errors.nickname && (
+          <p className="error">{errors.nickname}</p>
         )}
         <FieldInput type="text" name="plant" placeholder="Plant Name" />
 
@@ -78,7 +78,7 @@ const UpdatePlant = ({ errors, touched, status }) => {
         )}
         <FieldInput type="text" name="species" placeholder="Species" />
 
-        {touched.water && errors.water && (
+        {touched.h2o_frequency && errors.h2o_frequency && (
           <p className="error">{errors.water}</p>
         )}
         <FieldInput type="text" name="water" placeholder="Water Schedule" />
@@ -92,21 +92,22 @@ const UpdatePlant = ({ errors, touched, status }) => {
 export default withFormik({
   mapPropsToValues: values => {
     return {
-      plant: values.plant || '',
-      species: values.species || '',
-      water: values.water || ''
+      nickname: values.nickname || "",
+      species: values.species || "",
+      h2o_frequency: values.h2o_frequency || "",
+     //image: values.image|| "",
+      user_id: values.user_id|| ""
     };
   },
   validationSchema: yup.object().shape({
-    plant: yup.string(),
+    nickname: yup.string(),
     species: yup.string(),
-    water: yup.string()
+    h2o_frequency: yup.string(),
+    user_id: yup.string()
   }),
   handleSubmit: (values, { setStatus }) => {
     axios
-      .put(
-//api-url/plants
-        values)
+        .put("https://damp-ravine-25485.herokuapp.com/api/plants: id", values)
       .then(response => {
         setStatus(response.data);
       })

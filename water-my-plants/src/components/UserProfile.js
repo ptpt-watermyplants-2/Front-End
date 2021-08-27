@@ -56,7 +56,7 @@ export default props => {
   const [data, setData] = useState([]);
   const [key] = useState(decode(localStorage.token));
   const [url] = useState(
-//api-url//users/${key.sub}
+    `https://damp-ravine-25485.herokuapp.com/api/users/${key.sub}`
   );
   const [config] = useState({
     headers: {
@@ -82,25 +82,26 @@ export default props => {
         <SubHeading>User Profile</SubHeading>
         <FlexContainer>
           <Info>
-            <Value>{data.fullname}</Value>
-            <Item>Name</Item>
-          </Info>
-          <Info>
             <Value>{data.username}</Value>
             <Item>Username</Item>
           </Info>
           <Info>
-            <Value>{data.phonenumber}</Value>
+            <Value>{data.phone_number}</Value>
             <Item>Phone Number</Item>
           </Info>
+          <Info>
+          <Value>{data.password}</Value>
+            <Item>Password</Item>
+          </Info>
+         
         </FlexContainer>
       </FormDiv>
 
       <Formik
-        initialValues={{ username: "", phonenumber: "" }}
+        initialValues={{ username: "", phone_number: "" }}
         validationSchema={yup.object().shape({
           username: yup.string().required(),
-          phonenumber: yup.string().required()
+          phone_number: yup.string().required()
         })}
         validateOnChange={false}
         validateOnBlur={false}
@@ -108,8 +109,7 @@ export default props => {
           let key = decode(localStorage.token);
 
           axios
-            .put(
-//api-url/users/${key.sub}
+            .put(`https://damp-ravine-25485.herokuapp.com/api/users/:id/${key.sub}`,
               values,
               config
             )
@@ -134,8 +134,8 @@ export default props => {
               onChange={props.handleChange}
             />
 
-            {props.touched.phonenumber && props.errors.phonenumber && (
-              <Error>{props.errors.phonenumber}</Error>
+            {props.touched.phone_number && props.errors.phone_number && (
+              <Error>{props.errors.phone_number}</Error>
             )}
             <Input
               type="text"

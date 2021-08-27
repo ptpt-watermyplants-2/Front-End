@@ -53,6 +53,7 @@ export default withFormik({
 //api-url/auth/login
         values)
       .then(res => {
+        //console.log(res);
         localStorage.setItem('token', res.data.token);
         resetForm();
         return props.history.push('/home');
