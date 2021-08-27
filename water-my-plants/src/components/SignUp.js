@@ -4,6 +4,7 @@ import * as yup from "yup";
 import axios from "axios";
 import styled from "styled-components";
 
+
 import { 
   Input,
   Heading,
@@ -17,11 +18,11 @@ const Label = styled.label`
 `;
 
 const SignUp = props => {
-  const { errors, touched, values } = props;
+  const { errors, touched, values, handleSubmit} = props;
   return (
     <>
       <Heading>Sign Up</Heading>
-      <FormDiv>
+      <FormDiv onSubmit={handleSubmit}>
         {touched.fullname && errors.fullname && (
           <Error>{errors.fullname}</Error>
         )}
@@ -111,8 +112,7 @@ export default withFormik({
       phonenumber: values.phonenumber
     };
     axios
-      .post(
-        // api
+      .post("https://damp-ravine-25485.herokuapp.com/api/register",
         userObj
       )
       .then(res => {
