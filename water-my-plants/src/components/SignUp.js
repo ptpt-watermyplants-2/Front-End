@@ -23,32 +23,32 @@ const SignUp = props => {
       <Heading>Sign Up</Heading>
       <FormDiv>
         {touched.fullname && errors.fullname && (
-          <Error>{errors.fullname}</Error>
+          <Error data-testid="errorDiv">{errors.fullname}</Error>
         )}
         <Input type="text" name="fullname" placeholder="Name" />
 
         {touched.username && errors.username && (
-          <Error>{errors.username}</Error>
+          <Error data-testid="errorDiv">{errors.username}</Error>
         )}
         <Input type="text" name="username" placeholder="Username" />
 
         {touched.phonenumber && errors.phonenumber && (
-          <Error>{errors.phonenumber}</Error>
+          <Error data-testid="errorDiv">{errors.phonenumber}</Error>
         )}
         <Input type="text" name="phonenumber" placeholder="Phone number" />
 
         {touched.password && errors.password && (
-          <Error>{errors.password}</Error>
+          <Error data-testid="errorDiv">{errors.password}</Error>
         )}
         <Input type="password" name="password" placeholder="Password" />
 
         {touched.password2 && errors.password2 && (
-          <Error>{errors.password2.slice(49, 69)}</Error>
+          <Error data-testid="errorDiv">{errors.password2.slice(49, 69)}</Error>
         )}
         <Input type="password" name="password2" placeholder="Confirm password" />
 
         {touched.termsOfService && errors.termsOfService && (
-          <Error>{errors.termsOfService.slice(58, 96)}</Error>
+          <Error data-testid="errorDiv">{errors.termsOfService.slice(58, 96)}</Error>
         )}
         <Label>
           <Field

@@ -20,17 +20,17 @@ const NewPlant = ({ errors, touched, status }) => {
       <Heading>Add a Plant</Heading>
       <FormDiv>
         {touched.plant_name && errors.plant_name && (
-          <Error className="error">{errors.plant_name}</Error>
+          <Error data-testid="errorDiv" className="error">{errors.plant_name}</Error>
         )}
         <Input type="text" name="plant_name" placeholder="Plant Name" />
 
         {touched.plant_species && errors.plant_species && (
-          <Error className="error">{errors.plant_species}</Error>
+          <Error data-testid="errorDiv" className="error">{errors.plant_species}</Error>
         )}
         <Input type="text" name="plant_species" placeholder="Species" />
 
         {touched.water_schedule && errors.water_schedule && (
-          <Error className="error">{errors.water_schedule}</Error>
+          <Error data-testid="errorDiv" className="error">{errors.water_schedule}</Error>
         )}
         <Input type="text" name="water_schedule" placeholder="Water Schedule" />
 
