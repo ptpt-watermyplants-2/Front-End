@@ -17,11 +17,11 @@ const Label = styled.label`
 `;
 
 const SignUp = props => {
-  const { errors, touched, values } = props;
+  const { errors, touched, values, handleSubmit } = props;
   return (
     <>
       <Heading>Sign Up</Heading>
-      <FormDiv>
+      <FormDiv onSubmit={handleSubmit}>
         {touched.fullname && errors.fullname && (
           <Error data-testid="errorDiv">{errors.fullname}</Error>
         )}

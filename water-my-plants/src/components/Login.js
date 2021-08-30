@@ -12,12 +12,12 @@ import {
 } from './StyledComponents'
 
 const Login = props => {
-  const { errors, touched } = props;
+  const { errors, touched, handleSubmit } = props;
 
   return (
     <>
       <Heading>Login</Heading>
-      <FormDiv>
+      <FormDiv onSubmit={handleSubmit}>
         {touched.username && errors.username && (
           <Error>{errors.username}</Error>
         )}
